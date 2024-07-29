@@ -1,0 +1,23 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <label for="code">Código:</label>
+  <input id="code" formControlName="code" />
+
+  <label for="description">Descrição:</label>
+  <input id="description" formControlName="description" />
+
+  <label for="price">Preço:</label>
+  <input id="price" type="number" formControlName="price" />
+
+  <label for="status">Status:</label>
+  <select id="status" formControlName="status">
+    <option [value]="true">Ativo</option>
+    <option [value]="false">Inativo</option>
+  </select>
+
+  <label for="departmentId">Departamento:</label>
+  <select id="departmentId" formControlName="departmentId">
+    <option *ngFor="let department of departments" [value]="department.id">{{ department.description }}</option>
+  </select>
+
+  <button type="submit">Salvar</button>
+</form>
